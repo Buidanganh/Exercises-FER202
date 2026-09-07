@@ -21,7 +21,7 @@ class Student extends Person {
     }
 
     // Calculate average score
-    caculateAverageScore() {
+    calculateAverageScore() {
         if (this.scores.length === 0) {
             return 0;
         }
@@ -35,10 +35,24 @@ class Student extends Person {
         console.log(`Name: ${this.name}`);
         console.log(`Age: ${this.age}`);
         console.log(`Scores: ${this.scores.join(", ")}`);
-        console.log(`Average Score: ${this.calculateAverage().toFixed(2)}`);
+        console.log(`Average Score: ${this.calculateAverageScore().toFixed(2)}`);
         console.log("=========================================");
     }
 }
 
-const person = new Person("An", 20);
+const person = new Person("Anh", 25);
 person.introduce();
+
+
+// 4.Use Destructuring
+function createScores(...scores) {
+    return scores;
+}
+
+const scores = createScores(8, 9, 10)
+const student = new Student("Bùi Đăng Anh", 25, scores)
+
+const { name, age, scores: studentScores } = student;
+console.log("========== DESTRUCTURING ==========");
+console.log(`Name: ${name}`);
+console.log(`Age: ${age}`);
