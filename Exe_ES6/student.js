@@ -111,3 +111,54 @@ const averageScore = student.scores.reduce(
 ) / student.scores.length;
 
 console.log("Average score:", averageScore.toFixed(2));
+
+
+// 7.USE PROMISES
+
+// Simulate asynchronous academic performance evaluation
+function evaluatePerformance(student) {
+
+    return new Promise((resolve) => {
+
+        setTimeout(() => {
+
+            const average = student.calculateAverageScore();
+
+            if (average >= 8) {
+                resolve({
+                    student: student.name,
+                    average: average,
+                    result: "Excellent Student"
+                });
+            } else {
+                resolve({
+                    student: student.name,
+                    average: average,
+                    result: "Need Improvement"
+                });
+            }
+
+        }, 1000);
+
+    });
+}
+
+
+// Call Promise
+console.log("\n========== PROMISE ==========");
+console.log("Evaluating academic performance...");
+
+evaluatePerformance(student)
+    .then(result => {
+        console.log(`Student: ${result.student}`);
+        console.log(`Average: ${result.average.toFixed(2)}`);
+        console.log(`Result: ${result.result}`);
+    })
+    .catch(error => {
+        console.error("Error:", error);
+    });
+
+
+// DISPLAY FULL INFORMATION
+student.introduce();
+student.displayInfo();
