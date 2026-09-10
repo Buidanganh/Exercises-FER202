@@ -516,12 +516,8 @@ function App() {
       <header className="header">
 
         <h1>
-          Exercise 4: JSX and ES6
+          Exercise 4: JSX
         </h1>
-
-        <p>
-          React + JSX + JavaScript ES6
-        </p>
 
       </header>
 
